@@ -123,16 +123,19 @@ export default function Berita1Screen({ navigation }) {
             </ScrollView>
 
             <View style={styles.navigationBar}>
-                <TouchableOpacity style={styles.icon}>
-                    <Image source={require('../assets/home.png')}/>
+                <TouchableOpacity style={styles.navigationIcon}>
+                    <Image style={styles.icon} source={require('../assets/home.png')}/>
+                    <Text style={[styles.textIconSlected, styles.textIcon]}>Beranda</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.icon}>
-                    <Image source={require('../assets/icon_simpan.png')}/>
+                <TouchableOpacity style={styles.navigationIcon}>
+                    <Image style={styles.icon} source={require('../assets/icon_simpan.png')}/>
+                    <Text style={styles.textIcon}>Disimpan</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.icon}>
-                    <Image source={require('../assets/akun_icon.png')}/>
+                <TouchableOpacity style={styles.navigationIcon}>
+                    <Image style={styles.icon} source={require('../assets/akun_icon.png')}/>
+                    <Text style={styles.textIcon}>Akun</Text>
                 </TouchableOpacity>
             </View>
             <StatusBar style="auto" />
@@ -211,5 +214,15 @@ const styles = StyleSheet.create({
     waktuNews: {fontSize: 7, fontWeigh: 400, left: 10, color: '#508C9B'},
 
     // Navigation //
-    navigationBar: { flexDirection: 'row', justifyContent: 'center', } 
+    navigationBar: { flexDirection: 'row', justifyContent: 'center', height:70},
+    navigationIcon: {
+        marginRight: 15, 
+        marginLeft: 15, 
+        marginTop: 5, 
+        marginBottom: 5, 
+        alignItems: 'center'
+    },
+    icon: {width: 40, height: 40},
+    textIcon: {fontSize: 10, fontWeight: 500},
+    textIconSlected: {color: '#134B70'}
 });
