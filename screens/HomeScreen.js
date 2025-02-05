@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, ScrollView, Text, View, Image, TouchableOpacity} from 'react-native';
 
-export default function Berita1Screen({ navigation }) {
+export default function HomeScreen({ navigation }) {
 
     return (
         <View style={styles.container}>
@@ -10,13 +10,14 @@ export default function Berita1Screen({ navigation }) {
                 <Image source={require('../assets/WHITE.png')} style={styles.pageLogo}/>
             </View>
 
+            {/* Search Section */}
+            <View style={styles.searchContainer}>
+                <Image style={styles.iconSearch} source={require('../assets/Search.png')}/>
+                <Text style={styles.searchText}> Berita Hari Ini </Text>
+                <Image style={styles.iconSearch} source={require('../assets/Search.png')}/>
+            </View>
+            
             <ScrollView>
-                {/* Search Section */}
-                <View style={styles.searchContainer}>
-                    <Image style={styles.iconSearch} source={require('../assets/Search.png')}/>
-                    <Text style={styles.searchText}> Berita Hari Ini </Text>
-                    <Image style={styles.iconSearch} source={require('../assets/Search.png')}/>
-                </View>
 
                 {/* Main News Section */}
                 <TouchableOpacity style={styles.mainNewsContainer} onPress={() => navigation.navigate('Berita1')}>
@@ -124,16 +125,16 @@ export default function Berita1Screen({ navigation }) {
 
             <View style={styles.navigationBar}>
                 <TouchableOpacity style={styles.navigationIcon}>
-                    <Image style={styles.icon} source={require('../assets/home.png')}/>
+                    <Image style={styles.icon} source={require('../assets/homeSelected.png')}/>
                     <Text style={[styles.textIconSlected, styles.textIcon]}>Beranda</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.navigationIcon}>
+                <TouchableOpacity style={styles.navigationIcon} onPress={() => navigation.navigate('Simpan')}>
                     <Image style={styles.icon} source={require('../assets/icon_simpan.png')}/>
                     <Text style={styles.textIcon}>Disimpan</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.navigationIcon}>
+                <TouchableOpacity style={styles.navigationIcon} onPress={() => navigation.navigate('Akun')}>
                     <Image style={styles.icon} source={require('../assets/akun_icon.png')}/>
                     <Text style={styles.textIcon}>Akun</Text>
                 </TouchableOpacity>
@@ -216,13 +217,13 @@ const styles = StyleSheet.create({
     // Navigation //
     navigationBar: { flexDirection: 'row', justifyContent: 'center', height:70},
     navigationIcon: {
-        marginRight: 15, 
-        marginLeft: 15, 
-        marginTop: 5, 
+        marginRight: 35, 
+        marginLeft: 35, 
+        marginTop: 15, 
         marginBottom: 5, 
         alignItems: 'center'
     },
-    icon: {width: 40, height: 40},
+    icon: {width: 25, height: 25},
     textIcon: {fontSize: 10, fontWeight: 500},
     textIconSlected: {color: '#134B70'}
 });

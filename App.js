@@ -10,6 +10,8 @@ import Berita2Screen from "./screens/Berita2";
 import Berita3Screen from "./screens/Berita3";
 import Berita4Screen from "./screens/Berita4";
 import Berita5Screen from "./screens/Berita5";
+import SimpanScreen from "./screens/simpanScreen";
+import AkunScreen from "./screens/akunScreen";
 
 const Stack = createStackNavigator();
 
@@ -21,6 +23,8 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Daftar" component={DaftarScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Simpan" component={SimpanScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Akun" component={AkunScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Berita1" component={Berita1Screen} options={{ headerShown: false }} />
         <Stack.Screen name="Berita2" component={Berita2Screen} options={{ headerShown: false }} />
         <Stack.Screen name="Berita3" component={Berita3Screen} options={{ headerShown: false }} />
