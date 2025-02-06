@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, ScrollView, Text, View, Image, TouchableOpacity} from 'react-native';
 
-export default function Berita1Screen({ navigation }) {
+export default function AkunScreen({ navigation }) {
 
     return (
         <View style={styles.container}>
@@ -13,8 +13,9 @@ export default function Berita1Screen({ navigation }) {
             <ScrollView>
 
                 {/* Main Section */}
-                <View>
-
+                <View style={styles.containerUsername}>
+                    <Image style={styles.imageUsername} source={require('../assets/username.png')}/>
+                    <Text style={styles.username}>Fahri</Text>
                 </View>
 
                 <TouchableOpacity style={[styles.container1, styles.containerChoise]}>
@@ -25,7 +26,7 @@ export default function Berita1Screen({ navigation }) {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={[styles.container2, styles.containerChoise]}>
+                <TouchableOpacity style={[styles.container2, styles.containerChoise]} onPress={() => navigation.navigate('Simpan')}>
                     <Image style={styles.iconBacaNanti} source={require('../assets/Baca_nanti_icon.png')}/>
                     <View style={styles.containerText2}>
                         <Text style={styles.headerChoise}>Baca Nanti</Text>
@@ -33,7 +34,7 @@ export default function Berita1Screen({ navigation }) {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={[styles.container3, styles.containerChoise]}>
+                <TouchableOpacity style={[styles.container3, styles.containerChoise]} onPress={() => navigation.navigate('Setting')}>
                     <Image style={styles.iconChoise} source={require('../assets/pengaturan_icon.png')}/>
                     <View style={styles.containerText}>
                         <Text style={styles.headerChoise}>Pangaturan</Text>
@@ -41,7 +42,7 @@ export default function Berita1Screen({ navigation }) {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={[styles.container4, styles.containerChoise]}>
+                <TouchableOpacity style={[styles.container4, styles.containerChoise]} onPress={() => navigation.navigate('Contact')}>
                     <Image style={styles.iconChoise} source={require('../assets/hubungi_icon.png')}/>
                     <View style={styles.containerText}>
                         <Text style={styles.headerChoise}>Hubungi Kami</Text>
@@ -67,7 +68,7 @@ export default function Berita1Screen({ navigation }) {
                     <Text style={[styles.textIconSlected, styles.textIcon]}>Akun</Text>
                 </TouchableOpacity>
             </View>
-            <StatusBar style="auto" />
+            <StatusBar style="light" />
         </View>
     );
 }
@@ -79,27 +80,27 @@ const styles = StyleSheet.create({
     titlePage:{ backgroundColor: '#210E43', height: 80 },
     pageLogo:{ top: 30, left: 25,},
 
-    // Main News //
-    mainNewsContainer: { flexDirection: 'row', marginLeft: 40, marginTop: 20},
-    imageNewsMain: {width: 105, height: 95, borderRadius: 10},
-    textMainNewsContainer: { 
-        justifyContent: 'center', 
-        width: 212,
-        borderTopWidth: 1, 
-        borderBottomWidth: 1,
-        paddingLeft: 10,
+    // Username //
+    containerUsername:{
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: 328,
+        height: 60,
+        elevation: 3,
+        shadowColor: 'grey',
+        shadowOpacity: '80',
+        borderRadius: 5,
+        top: 40,
+        left: 37,
     },
-
-    // Text Style //
-    h3:{ fontSize: 7, fontWeight: 500, color: '#134B70'},
-    h1:{ fontSize: 8, fontWeight: 500, color: 'black'},
-    h2:{ fontSize: 6, fontWeight: 400, color: 'gray'},
+    imageUsername: {width: 45, height: 45, left: 10},
+    username: {fontSize: 16, fontWeight: 700, left: 20},
 
     // Choise //
     containerChoise:{ 
         width: 328,
         height: 50,
-        top: 100,
+        top: 40,
         left: 37,
         marginTop: 20,
         flexDirection: 'row', 

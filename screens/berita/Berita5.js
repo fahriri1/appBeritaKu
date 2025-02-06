@@ -7,12 +7,12 @@ export default function Berita1Screen({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.titlePage}>
-                <Image source={require('../assets/WHITE.png')} style={styles.pageLogo}/>
+                <Image source={require('../../assets/WHITE.png')} style={styles.pageLogo}/>
             </View>
 
             <View style={styles.pageInfoContainer}>
                 <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                    <Image style={styles.iconInfo} source={require('../assets/home.png')}/>
+                    <Image style={styles.iconInfo} source={require('../../assets/home.png')}/>
                 </TouchableOpacity>
                 <Text style={styles.infoPage}> | Spiritualitas</Text>
             </View>
@@ -24,8 +24,8 @@ export default function Berita1Screen({ navigation }) {
                 <Text style={styles.dateText}>
                     23 Dec 2024 14:05 WIB
                 </Text>
-                <Image style={styles.pictureText} source={require('../assets/berita5.png')}/>
-                <Image style={styles.socialMedia} source={require('../assets/frame_social.png')}/>
+                <Image style={styles.pictureText} source={require('../../assets/berita5.png')}/>
+                <Image style={styles.socialMedia} source={require('../../assets/frame_social.png')}/>
                 <Text style={styles.textBerita}>
                 Terowongan Silaturahmi yang menghubungkan Masjid Istiqlal dan Gereja Katedral akan dibuka untuk mendukung kebutuhan umat dalam pelaksanaan misa malam Natal dan misa Natal. Pasalnya, bagi umat yang hendak beribadah pada malam misa natal dan misa natal di Gereja Katedral bisa memarkirkan kendaraan di Masjid Istiqlal.
                 </Text>
@@ -45,7 +45,7 @@ export default function Berita1Screen({ navigation }) {
                 2. Misa II (online & offline) pukul 20.00 WIB dipimpin oleh Romo Yohanes Deodatus
                 </Text>
             </ScrollView>
-            <StatusBar style="auto" />
+            <StatusBar style="light" />
         </View>
     );
 }

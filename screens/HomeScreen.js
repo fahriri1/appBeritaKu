@@ -139,7 +139,7 @@ export default function HomeScreen({ navigation }) {
                     <Text style={styles.textIcon}>Akun</Text>
                 </TouchableOpacity>
             </View>
-            <StatusBar style="auto" />
+            <StatusBar style="light" />
         </View>
     );
 }

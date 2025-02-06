@@ -7,12 +7,12 @@ export default function Berita1Screen({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.titlePage}>
-                <Image source={require('../assets/WHITE.png')} style={styles.pageLogo}/>
+                <Image source={require('../../assets/WHITE.png')} style={styles.pageLogo}/>
             </View>
 
             <View style={styles.pageInfoContainer}>
                 <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                    <Image style={styles.iconInfo} source={require('../assets/home.png')}/>
+                    <Image style={styles.iconInfo} source={require('../../assets/home.png')}/>
                 </TouchableOpacity>
                 <Text style={styles.infoPage}> | Otomotif</Text>
             </View>
@@ -24,8 +24,8 @@ export default function Berita1Screen({ navigation }) {
                 <Text style={styles.dateText}>
                     23 Dec 2024 14:05 WIB
                 </Text>
-                <Image style={styles.pictureText} source={require('../assets/berita3.png')}/>
-                <Image style={styles.socialMedia} source={require('../assets/frame_social.png')}/>
+                <Image style={styles.pictureText} source={require('../../assets/berita3.png')}/>
+                <Image style={styles.socialMedia} source={require('../../assets/frame_social.png')}/>
                 <Text style={styles.textBerita}>
                     Jalur Puncak masih menjadi salah satu destinasi Pajak pertambahan nilai (PPN) dikenakan atas transaksi yang memanfaatkan fintech, termasuk QRIS (Quick Response Indonesian Standard). Sehingga, kenaikan pajak menjadi 12 persen tahun 2025 mendatang otomatis akan ikut memengaruhi transaksi yang menggunakan QRIS.
                 </Text>
@@ -45,7 +45,7 @@ export default function Berita1Screen({ navigation }) {
                     Sebagai informasi, kebijakan ganjil genap tersebut sesuai dengan Peraturan Menteri Perhubungan RI Nomor PM 84 Tahun 2021. Oleh karena itu, petugas mengimbau pengendara untuk menaati peraturan yang berlaku di lapangan. Sistem pemberlakuan ganjil genap ini akan menyesuaikan dengan tanggal hari ini, misal Selasa tanggal 24 Desember 2024 akan berlaku bagi kendaraan berpelat genap.
                 </Text>
             </ScrollView>
-            <StatusBar style="auto" />
+            <StatusBar style="light" />
         </View>
     );
 }

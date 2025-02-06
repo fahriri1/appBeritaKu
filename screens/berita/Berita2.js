@@ -7,12 +7,12 @@ export default function Berita1Screen({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.titlePage}>
-                <Image source={require('../assets/WHITE.png')} style={styles.pageLogo}/>
+                <Image source={require('../../assets/WHITE.png')} style={styles.pageLogo}/>
             </View>
 
             <View style={styles.pageInfoContainer}>
                 <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                    <Image style={styles.iconInfo} source={require('../assets/home.png')}/>
+                    <Image style={styles.iconInfo} source={require('../../assets/home.png')}/>
                 </TouchableOpacity>
                 <Text style={styles.infoPage}> | Ekonomi dan Bisnis</Text>
             </View>
@@ -24,8 +24,8 @@ export default function Berita1Screen({ navigation }) {
                 <Text style={styles.dateText}>
                     23 Dec 2024 14:05 WIB
                 </Text>
-                <Image style={styles.pictureText} source={require('../assets/berita2.png')}/>
-                <Image style={styles.socialMedia} source={require('../assets/frame_social.png')}/>
+                <Image style={styles.pictureText} source={require('../../assets/berita2.png')}/>
+                <Image style={styles.socialMedia} source={require('../../assets/frame_social.png')}/>
                 <Text style={styles.textBerita}>
                     Pajak pertambahan nilai (PPN) dikenakan atas transaksi yang memanfaatkan fintech, termasuk QRIS (Quick Response Indonesian Standard). Sehingga, kenaikan pajak menjadi 12 persen tahun 2025 mendatang otomatis akan ikut memengaruhi transaksi yang menggunakan QRIS.
                 </Text>
@@ -42,7 +42,7 @@ export default function Berita1Screen({ navigation }) {
                     Untuk diketahui, biaya MDR QRIS yang dikenakan pada merchant untuk transaksi di atas Rp 500.000 adalah 0,3 persen. Sementara untuk transaksi dibawah Rp 500.000 tidak dikenakan biaya alias gratis. Fiskal Kementerian Keuangan menegaskan, masyarakat pengguna alat QRIS tidak dibebani. Pengenaan pajak QRIS dibebankan kepada penjual dan pengguna layanan transaksi di platform teknologi finansial. Jadi, dampak penyesuaian PPN 12 persen tidak akan dirasakan oleh masyarakat yang menggunakan QRIS untuk melakukan pembelian.
                 </Text>
             </ScrollView>
-            <StatusBar style="auto" />
+            <StatusBar style="light" />
         </View>
     );
 }

@@ -7,12 +7,12 @@ export default function Berita1Screen({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.titlePage}>
-                <Image source={require('../assets/WHITE.png')} style={styles.pageLogo}/>
+                <Image source={require('../../assets/WHITE.png')} style={styles.pageLogo}/>
             </View>
 
             <View style={styles.pageInfoContainer}>
                 <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                    <Image style={styles.iconInfo} source={require('../assets/home.png')}/>
+                    <Image style={styles.iconInfo} source={require('../../assets/home.png')}/>
                 </TouchableOpacity>
                 <Text style={styles.infoPage}> | Politik dan Hukum</Text>
             </View>
@@ -24,8 +24,8 @@ export default function Berita1Screen({ navigation }) {
                 <Text style={styles.dateText}>
                     23 Dec 2024 14:05 WIB
                 </Text>
-                <Image style={styles.pictureText} source={require('../assets/berita1.png')}/>
-                <Image style={styles.socialMedia} source={require('../assets/frame_social.png')}/>
+                <Image style={styles.pictureText} source={require('../../assets/berita1.png')}/>
+                <Image style={styles.socialMedia} source={require('../../assets/frame_social.png')}/>
                 <Text style={styles.textBerita}>
                     Sejumlah fraksi di DPR-RI mengkritik langkah fraksi PDI Perjuangan yang menolak pemberlakuan kenaikan pajak pertambahan nilai (PPN) menjadi 12 persen pada 1 Januari 2025. Mereka menilai penolakan PDI Perjuangan menggambarkan sikap politik yang inkosisten.
                 </Text>
@@ -45,7 +45,7 @@ export default function Berita1Screen({ navigation }) {
                     Misbakhun mengatakan sebagai anggota Panja RUU HPP, dirinya ikut menyaksikan dan mengetahui dinamika pembahasan mengenai kenaikan tarif PPN menjadi 12 persen dalam RUU tersebut.
                 </Text>
             </ScrollView>
-            <StatusBar style="auto" />
+            <StatusBar style="light" />
         </View>
     );
 }
