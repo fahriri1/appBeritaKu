@@ -1,21 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, ScrollView, Text, View, Button, Image, Modal, TouchableOpacity} from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SettingScreen({ navigation }) {
+    const [emailStorage, setEmailStorage] = useState('');
+    const [usernameStorage, setUsernameStorage] = useState('');
+    const [phoneStorage, setPhoneStorage] = useState('');
+
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
+    const [phone, setPhone] = useState('');
+    
     const [modalVisible, setModalVisible] = useState(false);
 
-    const handleLogin = () => {
-        if(email=='admin@gmail.com' && password=='1234'){
-            navigation.replace('Home');
+    const getData = async() => {
+        var value = await AsyncStorage.getItem('username');
+        setUsernameStorage(value);
+
+        value = await AsyncStorage.getItem('email');
+        setEmailStorage(value);
+
+        value = await AsyncStorage.getItem('phone');
+        setPhoneStorage(value);
+    }
+
+    const handleChanceData = async() => {
+        if(email !='' && username != '' && phone != ''){
+            try {
+                await AsyncStorage.setItem('username', username);
+                await AsyncStorage.setItem('email', email);
+                await AsyncStorage.setItem('phone', phone);
+                getData();
+                setModalVisible(true);
+            } catch (error) {
+                console.error('Error saving data:', error);
+            }
         }else{
-            alert('Invalid username or password');
+            alert('Data Mohon Diisikan');
         }
     };
 
+    useEffect(() => {
+        getData();
+    }, []);
+    
     return (
         <View style={styles.container}>
             <View style={styles.titlePage}>
@@ -46,9 +76,9 @@ export default function SettingScreen({ navigation }) {
 
                 <View style={styles.headerContainer}>
                     <Image source={require('../../assets/username.png')}/>
-                    <Text style={styles.Header}>Admin</Text>
-                    <Text style={styles.SubHeader}>Admin@gmail.com</Text>
-                    <Text style={styles.SubHeader}>+62 8921213123123</Text>
+                    <Text style={styles.Header}>{usernameStorage}</Text>
+                    <Text style={styles.SubHeader}>{emailStorage}</Text>
+                    <Text style={styles.SubHeader}>{phoneStorage}</Text>
                 </View>
 
                 <View style={styles.containerInput}>
@@ -57,8 +87,8 @@ export default function SettingScreen({ navigation }) {
                         <TextInput 
                             style={styles.form} 
                             placeholder='Admin'
-                            value={password}
-                            onChangeText={setPassword}/>
+                            value={username}
+                            onChangeText={setUsername}/>
                     </View>
                 </View>
 
@@ -68,9 +98,9 @@ export default function SettingScreen({ navigation }) {
                         <TextInput
                             style={styles.form}
                             placeholder='+62 892121234' 
-                            value={password}
+                            value={phone}
                             secureTextEntry={true}
-                            onChangeText={setPassword}/>
+                            onChangeText={setPhone}/>
                     </View>
                 </View>
 
@@ -80,12 +110,12 @@ export default function SettingScreen({ navigation }) {
                         <TextInput
                             style={styles.form}
                             placeholder='Admin@gmail.com' 
-                            value={password}
-                            onChangeText={setPassword}/>
+                            value={email}
+                            onChangeText={setEmail}/>
                     </View>
                 </View>
 
-                <TouchableOpacity style={[styles.buttonMasuk, styles.button]} onPress={() => setModalVisible(true)}>
+                <TouchableOpacity style={[styles.buttonMasuk, styles.button]} onPress={() => handleChanceData()}>
                     <Text style={styles.buttonText}>Ubah</Text>
                 </TouchableOpacity>
 

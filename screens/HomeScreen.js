@@ -36,6 +36,7 @@ export default function HomeScreen({ navigation }) {
 
                 {/* Tekini Section */}
                 <View style={styles.containerTerkini}>
+                    
                     <View style={styles.containerRowTerkini}>
                         <TouchableOpacity style={styles.newsContainerTerkini} onPress={() => navigation.navigate('Berita2')}>
                             <Image style={styles.imageNewsTerkini} source={require('../assets/berita2.png')}/>
@@ -53,18 +54,19 @@ export default function HomeScreen({ navigation }) {
                             <Text style={styles.textMainTerkini}>Jam Operasional Monas Saat Natal 2024</Text>
                         </TouchableOpacity>
                     </View>
+
                     <View style={styles.containerRowTerkini}>
                         <TouchableOpacity style={styles.newsContainerTerkini} onPress={() => navigation.navigate('Berita5')}>
                             <Image style={styles.imageNewsTerkini} source={require('../assets/berita5.png')}/>
                             <Text style={styles.textKategoriTerkini}>SPIRITUALITAS</Text>
                             <Text style={styles.textMainTerkini}>Terowongan Silaturahmi Dibuka untuk yang Beribadah di Katedral, Ini Ketentuannya...</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.newsContainerTerkini} onPress={() => navigation.navigate('Berita6')}>
+                        <TouchableOpacity style={styles.newsContainerTerkini}>
                             <Image style={styles.imageNewsTerkini} source={require('../assets/berita6.png')}/>
                             <Text style={styles.textKategoriTerkini}>POLITIK & HUKUM</Text>
                             <Text style={styles.textMainTerkini}>3 Hakim yang Bebaskan Ronald Tannur Didakwa Terima Suap Rp 1 Miliar dan 308 Dollar…</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.newsContainerTerkini} onPress={() => navigation.navigate('Berita7')}>
+                        <TouchableOpacity style={styles.newsContainerTerkini}>
                             <Image style={styles.imageNewsTerkini} source={require('../assets/berita7.png')}/>
                             <Text style={styles.textKategoriTerkini}>POLITIK & HUKUM</Text>
                             <Text style={styles.textMainTerkini}>Perjalanan Harvey Moeis dalam Kasus Korupsi Timah, dari Peran hingga Vonis</Text>

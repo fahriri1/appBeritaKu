@@ -1,8 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, ScrollView, Text, View, Image, TouchableOpacity} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function AkunScreen({ navigation }) {
+    const [storedUsername, setStoredUsername] = useState('');
+
+    const getUsername = async() => {
+        const value = await AsyncStorage.getItem('username');
+        setStoredUsername(value);
+    };
+
+    useEffect(() => {
+        getUsername();
+    }, []);
 
     return (
         <View style={styles.container}>
@@ -15,7 +26,7 @@ export default function AkunScreen({ navigation }) {
                 {/* Main Section */}
                 <View style={styles.containerUsername}>
                     <Image style={styles.imageUsername} source={require('../assets/username.png')}/>
-                    <Text style={styles.username}>Fahri</Text>
+                    <Text style={styles.username}>{storedUsername}</Text>
                 </View>
 
                 <TouchableOpacity style={[styles.container1, styles.containerChoise]} onPress={() => navigation.navigate('KelolaAkun')}>

@@ -2,19 +2,37 @@ import React, { useState } from 'react';
 import { StyleSheet, Pressable, Text, View, ImageBackground, Image, TouchableOpacity} from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { TextInput } from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function DaftarScreen({ navigation }) {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
+    const [ConfirmPassword, setConfirmPassword] = useState('');
     const [isChecked, setIsChecked] = useState(require('../assets/check_box.png'));
 
-    const handleLogin = () => {
-        if(isChecked == require('../assets/check_box_fill.png')){
-            navigation.replace('Home');
+    const handleDaftar = async() => {
+        if(ConfirmPassword == password){
+            if(isChecked == require('../assets/check_box_fill.png')){
+                if(username != '' && email != '' && phone != '' && password != ''){
+                    try {
+                        await AsyncStorage.setItem('username', username);
+                        await AsyncStorage.setItem('email', email);
+                        await AsyncStorage.setItem('phone', phone);
+                        await AsyncStorage.setItem('password', password);
+                        navigation.replace('Home');
+                    } catch (error) {
+                        console.error('Error saving data:', error);
+                    }
+                }else{
+                    alert('Komponen data tidak boleh kosong');
+                }
+            }else{
+                alert('Mohon Isi Persetujuan');
+            }
         }else{
-            alert('Mohon Isi Persetujuan');
+            alert('Mohon Konfirmasi Password');
         }
     };
 
@@ -78,9 +96,9 @@ export default function DaftarScreen({ navigation }) {
                 <TextInput 
                     style={styles.form} 
                     placeholder='Konfirmasi Kata Sandi'
-                    value={password}
+                    value={ConfirmPassword}
                     secureTextEntry={true}
-                    onChangeText={setPassword}/>
+                    onChangeText={setConfirmPassword}/>
             </View>
 
             <Pressable onPress={toggleImage} style={styles.checkboxContainer}>
@@ -93,7 +111,7 @@ export default function DaftarScreen({ navigation }) {
             </Pressable>
 
             {/* Button HTML */}
-            <TouchableOpacity style={[styles.buttonMasuk, styles.button]} onPress={handleLogin}>
+            <TouchableOpacity style={[styles.buttonMasuk, styles.button]} onPress={handleDaftar}>
                 <Text style={styles.buttonText}>Daftar</Text>
             </TouchableOpacity>
 

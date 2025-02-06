@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, Image, TouchableOpacity} from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { TextInput } from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function LoginScreen({ navigation }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = () => {
-        if(email=='admin@gmail.com' && password=='1234'){
+    const handleLogin = async() => {
+        const email_ = await AsyncStorage.getItem('email');
+        const password_ = await AsyncStorage.getItem('password');
+
+        if(email==email_ && password == password_){
             navigation.replace('Home');
         }else{
             alert('Invalid username or password');
