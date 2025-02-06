@@ -9,6 +9,7 @@ import HomeScreen from './screens/HomeScreen';
 import SimpanScreen from "./screens/simpanScreen";
 import AkunScreen from "./screens/akunScreen";
 
+import SearchScreen from './screens/berita/searchScreen';
 import Berita1Screen from "./screens/berita/Berita1";
 import Berita2Screen from "./screens/berita/Berita2";
 import Berita3Screen from "./screens/berita/Berita3";
@@ -18,6 +19,7 @@ import Berita5Screen from "./screens/berita/Berita5";
 import ContactScreen from "./screens/setting/contactScreen";
 import SettingScreen from './screens/setting/settingScreen';
 import PasswordScreen from './screens/setting/passwordScreen';
+import KelolaAkun from './screens/setting/kelolanAkun';
 
 const Stack = createStackNavigator();
 
@@ -33,6 +35,7 @@ export default function App() {
         <Stack.Screen name="Simpan" component={SimpanScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Akun" component={AkunScreen} options={{ headerShown: false }} />
 
+        <Stack.Screen name="Search" component={SearchScreen} options={{ headerShown: false}} />
         <Stack.Screen name="Berita1" component={Berita1Screen} options={{ headerShown: false }} />
         <Stack.Screen name="Berita2" component={Berita2Screen} options={{ headerShown: false }} />
         <Stack.Screen name="Berita3" component={Berita3Screen} options={{ headerShown: false }} />
@@ -42,6 +45,7 @@ export default function App() {
         <Stack.Screen name="Contact" component={ContactScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Setting" component={SettingScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Password" component={PasswordScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="KelolaAkun" component={KelolaAkun} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -18,7 +18,7 @@ export default function AkunScreen({ navigation }) {
                     <Text style={styles.username}>Fahri</Text>
                 </View>
 
-                <TouchableOpacity style={[styles.container1, styles.containerChoise]}>
+                <TouchableOpacity style={[styles.container1, styles.containerChoise]} onPress={() => navigation.navigate('KelolaAkun')}>
                     <Image style={styles.iconChoise} source={require('../assets/Akun_icon.png')}/>
                     <View style={styles.containerText}>
                         <Text style={styles.headerChoise}>Kelola Akun</Text>

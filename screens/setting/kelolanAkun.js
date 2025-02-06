@@ -23,7 +23,7 @@ export default function SettingScreen({ navigation }) {
                     <TouchableOpacity onPress={() => navigation.navigate('Akun')}>
                         <Image style={styles.imageHeader} source={require('../../assets/Arrow_left_white.png')}/>
                     </TouchableOpacity>
-                    <Text style={styles.textHeader}> Ubah Sandi</Text>
+                    <Text style={styles.textHeader}> Kelola Akun</Text>
                 </View>
             </View>
 
@@ -38,24 +38,36 @@ export default function SettingScreen({ navigation }) {
                 >
                     <View style={styles.modalBackground}>
                     <View style={styles.modalContainer}>
-                        <Image source={require('../../assets/password_icon.png')}/>
-                        <Text style={styles.modalText}>Kata Sandi Anda Berhasil Diubah!</Text>
+                        <Text style={styles.modalText}>Data Anda Berhasil Diubah!</Text>
                         <Button title="Tutup" onPress={() => setModalVisible(false)} />
                     </View>
                     </View>
                 </Modal>
 
                 <View style={styles.headerContainer}>
-                    <Text style={styles.passwordHeader}>Atur Ulang Kata Sandi</Text>
-                    <Text style={styles.passwordSubHeader}>Buat kata sandi baru</Text>
+                    <Image source={require('../../assets/username.png')}/>
+                    <Text style={styles.Header}>Admin</Text>
+                    <Text style={styles.SubHeader}>Admin@gmail.com</Text>
+                    <Text style={styles.SubHeader}>+62 8921213123123</Text>
                 </View>
 
                 <View style={styles.containerInput}>
-                    <Text style={styles.inputLabel}>Masukan Kata Sandi Baru</Text>
+                    <Text style={styles.inputLabel}>Nama Lengkap</Text>
                     <View style={styles.input}>
                         <TextInput 
                             style={styles.form} 
-                            placeholder='Masukan Kata Sandi'
+                            placeholder='Admin'
+                            value={password}
+                            onChangeText={setPassword}/>
+                    </View>
+                </View>
+
+                <View style={styles.containerInput}>
+                    <Text style={styles.inputLabel}>No Telepon</Text>
+                    <View style={styles.input}>
+                        <TextInput
+                            style={styles.form}
+                            placeholder='+62 892121234' 
                             value={password}
                             secureTextEntry={true}
                             onChangeText={setPassword}/>
@@ -63,22 +75,23 @@ export default function SettingScreen({ navigation }) {
                 </View>
 
                 <View style={styles.containerInput}>
-                    <Text style={styles.inputLabel}>Masukan Ulang Kata Sandi Baru</Text>
+                    <Text style={styles.inputLabel}>Email</Text>
                     <View style={styles.input}>
                         <TextInput
                             style={styles.form}
-                            placeholder='Konfirmasi Kata Sandi' 
+                            placeholder='Admin@gmail.com' 
                             value={password}
-                            secureTextEntry={true}
                             onChangeText={setPassword}/>
                     </View>
                 </View>
 
                 <TouchableOpacity style={[styles.buttonMasuk, styles.button]} onPress={() => setModalVisible(true)}>
-                    <Text style={styles.buttonText}>Simpan Perubahan</Text>
+                    <Text style={styles.buttonText}>Ubah</Text>
                 </TouchableOpacity>
 
-
+                <TouchableOpacity style={[styles.buttonMasuk, styles.button]} onPress={() => navigation.navigate('Akun')}>
+                    <Text style={styles.buttonText}>Keluar</Text>
+                </TouchableOpacity>
             </ScrollView>
             <StatusBar style="light" />
         </View>
@@ -95,12 +108,12 @@ const styles = StyleSheet.create({
     textHeader: {marginLeft: 10, color: 'white', fontSize: 13, fontWeight: 700},
 
     // Header Page //
-    headerContainer:{alignItems: 'center', top: 100},
-    passwordHeader:{fontSize: 15, fontWeight: 700},
-    passwordSubHeader:{fontSize: 12, fontWeight: 400},    
+    headerContainer:{alignItems: 'center', top: 20},
+    Header:{fontSize: 15, fontWeight: 700, marginBottom: 5},
+    SubHeader:{fontSize: 12, fontWeight: 400, marginBottom: 5},    
 
     // Form Styles //
-    containerInput:{ top: 180, left: 45 },
+    containerInput:{ top: 50, left: 45 },
     inputLabel: {fontSize: 15, fontWeight: 700, marginBottom: 5},
     input: {
         width: 328,
@@ -117,30 +130,29 @@ const styles = StyleSheet.create({
 
     // Button Styles //
     button: {
+        top: 100,
+        left: 45,
         width: 328,
         height: 40,
         justifyContent: 'center', 
         alignItems: 'center',
         backgroundColor: '#134B70',
         borderRadius: 10,
+        marginTop: 20,
     },
+
     buttonText:{
         forntSize: 14,
         fontWeight: 700,
         color: 'white',
     },
-
-    buttonMasuk:{
-        top: 200,
-        left: 45,
-    },
-
     modalBackground: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
     },
+
     modalContainer: {
         width: 300,
         padding: 20,

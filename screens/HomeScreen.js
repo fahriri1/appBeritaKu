@@ -11,11 +11,11 @@ export default function HomeScreen({ navigation }) {
             </View>
 
             {/* Search Section */}
-            <View style={styles.searchContainer}>
+            <TouchableOpacity style={styles.searchContainer} onPress={() => navigation.navigate('Search')}>
                 <Image style={styles.iconSearch} source={require('../assets/Search.png')}/>
                 <Text style={styles.searchText}> Berita Hari Ini </Text>
                 <Image style={styles.iconSearch} source={require('../assets/Search.png')}/>
-            </View>
+            </TouchableOpacity>
             
             <ScrollView>
 
